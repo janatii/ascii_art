@@ -32,23 +32,27 @@ def pixels_to_ascii(image):
         ascii_str += ASCII_CHARS[pixel//25]
     return ascii_str
 
-# Process the image
-image = resize_image(image)
-image = grayify(image)
-ascii_str = pixels_to_ascii(image)
 
-# Split the string based on width of the image
-img_width = image.width
-ascii_str_len = len(ascii_str)
-ascii_img=""
+if __name__ == "__main__":
+    # Process the image
+    image = resize_image(image)
+    image = grayify(image)
+    ascii_str = pixels_to_ascii(image)
 
-# Split the ASCII string into lines that match the image width
-for i in range(0, ascii_str_len, img_width):
-    ascii_img += ascii_str[i:i+img_width] + "\n"
+    # Split the string based on width of the image
+    img_width = image.width
+    ascii_str_len = len(ascii_str)
+    ascii_img=""
 
-# Save the string to a file
-with open("/mnt/data/ascii_image.txt", "w") as f:
-    f.write(ascii_img)
+    # Split the ASCII string into lines that match the image width
+    for i in range(0, ascii_str_len, img_width):
+        ascii_img += ascii_str[i:i+img_width] + "\n"
 
-ascii_img_path = "/mnt/data/ascii_image.txt"
-ascii_img_path
+    # Save the string to a file
+    with open("/mnt/data/ascii_image.txt", "w") as f:
+        f.write(ascii_img)
+
+    ascii_img_path = "/mnt/data/ascii_image.txt"
+    print(ascii_img_path)
+
+
