@@ -1,0 +1,14 @@
+.styled-element {
+    display: inline-block;
+    background-color: white;
+    color: black;
+}
+.toggled {
+    display: inline-block;
+    background-color: black;
+    color:white;
+}
+.dezoomed {
+    transform: scale(0.5);
+    transform-origin: 0% 0% 0px;
+}

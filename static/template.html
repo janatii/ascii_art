@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video ASCII ART</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Streamed Content:</h1>
+    <button id="toggle-button">change theme</button>
+
+    <div>
+        <pre id="streamed-content" class="dezoomed styled-element"></pre>
+    </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+</html>

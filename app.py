@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 from flask import Flask, render_template, request, Response
 
 
-frontend_path = 'frontend'
+frontend_path = 'static'
 
 app = Flask(__name__, template_folder=frontend_path)
 
