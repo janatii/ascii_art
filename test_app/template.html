@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streaming from Flask to Jinja</title>
+</head>
+<body>
+    <h1>test Streamed Content:</h1>
+    <pre id="streamed-content"></pre>
+    
+    <script>
+        const streamedContentDiv = document.getElementById("streamed-content");
+        
+        function handleStreamEvent(event) {
+            streamedContentDiv.innerHTML = event.data;
+        }
+
+        const eventSource = new EventSource('/stream'); // Connect to the SSE endpoint
+        eventSource.onmessage = handleStreamEvent;
+    </script>
+</body>
+</html>

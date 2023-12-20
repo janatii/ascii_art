@@ -5,8 +5,8 @@ import numpy as np
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
 # First, we load the image
-image_path = '/mnt/data/1.jpeg'
-image = Image.open(image_path)
+# image_path = 'test2.jpg'
+# image = Image.open(image_path)
 
 # Define the resize function
 def resize_image(image, new_width=100):
@@ -30,16 +30,41 @@ def pixels_to_ascii(image):
     ascii_str = ''
     for pixel in pixels:
         ascii_str += ASCII_CHARS[pixel//25]
-    return ascii_str
+    return ascii_str.strip()
 
 
-if __name__ == "__main__":
-    # Process the image
-    image = resize_image(image)
+# if __name__ == "__main__":
+#     # Process the image
+#     image = resize_image(image)
+#     image = grayify(image)
+#     ascii_str = pixels_to_ascii(image)
+
+#     # Split the string based on width of the image
+#     img_width = image.width
+#     ascii_str_len = len(ascii_str)
+#     ascii_img=""
+
+#     # Split the ASCII string into lines that match the image width
+#     for i in range(0, ascii_str_len, img_width):
+#         ascii_img += ascii_str[i:i+img_width] + "\n"
+
+#     # Save the string to a file
+#     with open("./ascii_image.txt", "w") as f:
+#         f.write(ascii_img)
+
+#     ascii_img_path = "./ascii_image.txt"
+#     print(ascii_img_path)
+
+
+from io import BytesIO
+
+def process_bin_image(bin_image):
+    # image_stream = BytesIO(bin_image)
+    # img = Image.open(image_stream)
+    image = resize_image(bin_image)
     image = grayify(image)
     ascii_str = pixels_to_ascii(image)
 
-    # Split the string based on width of the image
     img_width = image.width
     ascii_str_len = len(ascii_str)
     ascii_img=""
@@ -47,12 +72,4 @@ if __name__ == "__main__":
     # Split the ASCII string into lines that match the image width
     for i in range(0, ascii_str_len, img_width):
         ascii_img += ascii_str[i:i+img_width] + "\n"
-
-    # Save the string to a file
-    with open("/mnt/data/ascii_image.txt", "w") as f:
-        f.write(ascii_img)
-
-    ascii_img_path = "/mnt/data/ascii_image.txt"
-    print(ascii_img_path)
-
-
+    return ascii_img

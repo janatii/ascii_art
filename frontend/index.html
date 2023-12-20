@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" id="imageInput" name="image" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+    <div>
+        <pre ng-show = "textFile.isPresent">
+            {{ ascii_art }}
+        </pre>
+    </div>
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>
