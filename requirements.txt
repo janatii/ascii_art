@@ -1,2 +1,12 @@
-numpy==1.26.2
-Pillow==10.1.0
+blinker
+click
+Flask
+itsdangerous
+Jinja2
+MarkupSafe
+numpy
+opencv-python
+opencv-python-headless
+Pillow
+Werkzeug
+gunicorn
