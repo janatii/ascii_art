@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ascii-art
+    restart: unless-stopped
     ports:
       - "8001:8001"
     environment:
